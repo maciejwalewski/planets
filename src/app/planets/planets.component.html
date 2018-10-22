@@ -1,0 +1,37 @@
+<section class="container d-flex flex-column align-items-center">
+  <div *ngIf="loadingData" class="row mt-5">
+    <div class="col-xs-12 lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+  </div>
+  <div *ngIf="!loadingData" class="container d-flex flex-column align-items-center">
+    <div class="row">
+      <div class="col-xs-8">
+        <input (keyup)="onKey($event)" class="form-control">
+      </div>
+      <div class="col-xs-4">
+        <button (click)="searchPlanet()" class="btn btn-outline-secondary">Search</button>
+      </div>
+    </div>
+    <div class="planetsContainer my-1">
+      <div class="planetsContainer__planetListElement d-flex justify-content-between p-2" *ngFor="let result of results | paginate: { itemsPerPage: planetsPerPage, currentPage: pageNum }">
+        <span class="ml-3">{{result.name}}</span>
+        <button class="btn btn-outline-secondary btn-sm mr-3" (click)="gotoPlanet(result.url)">Details</button>
+      </div>
+    </div>
+    <div>
+      <div>
+        <pagination-controls (pageChange)="pageNum = $event"></pagination-controls>
+      </div>
+      <div class="d-flex justify-content-center">
+        <span class="mr-1">Planets per page:</span>
+        <select (click)="perPageChange($event)" name="itemsPerPage">
+          <option *ngFor="let opt of options">
+            {{opt.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+</section>

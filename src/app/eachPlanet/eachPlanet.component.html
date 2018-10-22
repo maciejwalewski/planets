@@ -1,0 +1,47 @@
+<section class="d-flex flex-column justify-content-center align-items-center">
+  <a class="btn btn-light backBtn" [routerLink]="['/']">Back</a>
+  <div class="container d-flex justify-content-center">
+    <div *ngIf="loadingPlanet" class="lds-ripple">
+      <div></div>
+      <div></div>
+    </div>
+    <div *ngIf="!loadingPlanet" class="planetInfoContainer my-1">
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Name</span>
+        <span class="mr-3">{{planet.name}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Diameter</span>
+        <span class="mr-3">{{planet.population}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Gravity</span>
+        <span class="mr-3">{{planet.gravity}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Climate</span>
+        <span class="mr-3">{{planet.climate}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Population</span>
+        <span class="mr-3">{{planet.population}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Terrain</span>
+        <span class="mr-3">{{planet.terrain}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Rotation period</span>
+        <span class="mr-3">{{planet.rotation_period}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Orbital period</span>
+        <span class="mr-3">{{planet.orbital_period}}</span>
+      </div>
+      <div class="planetInfoContainer__planetInfoElement d-flex justify-content-between p-1">
+        <span class="ml-3">Surface water</span>
+        <span class="mr-3">{{planet.surface_water}}</span>
+      </div>
+    </div>
+  </div>
+</section>
