@@ -63,13 +63,13 @@ export class PlanetsComponent {
     this.results = [];
     this.loadingData = true;
     if (!this.searchStarted && this.searchValue && this.searchValue.length && this.searchValue !== '') {
-      this.httpClient.get(!this.searchStarted ? this.searchUrl : this.nextData.next)
+      this.httpClient.get(!this.searchStarted ? this.searchUrl : this.nextData["next"])
         .subscribe(
           (data: object) => {
-            this.results = this.results.concat(data.results);
+            this.results = this.results.concat(data["results"]);
             this.searchStarted = true;
             this.nextData = data;
-            if (this.nextData.next && this.nextData.next.length) {
+            if (this.nextData["next"] && this.nextData["next"].length) {
               this.searchPlanet();
             } else {
               console.log('Search results:', this.results);
@@ -96,13 +96,13 @@ export class PlanetsComponent {
 
   fetchData() {
     this.loadingData = true;
-    this.httpClient.get(this.searchStarted === false ? this.url : this.nextData.next)
+    this.httpClient.get(this.searchStarted === false ? this.url : this.nextData["next"])
       .subscribe(
         (data: object) => {
-          this.results = this.results.concat(data.results);
+          this.results = this.results.concat(data["results"]);
           this.searchStarted = true;
           this.nextData = data;
-          if (this.nextData.next && this.nextData.next.length) {
+          if (this.nextData["next"] && this.nextData["next"].length) {
             this.fetchData();
           } else {
             console.log('Results:', this.results);
