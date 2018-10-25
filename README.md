@@ -1,4 +1,4 @@
-# planets
+# Planets
 
 Planets widget showing data from swapi.co API.
 
