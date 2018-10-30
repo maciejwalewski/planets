@@ -25,7 +25,7 @@ export class PlanetsComponent {
 
   //pagination
   pageNum: number = 1;
-  planetsPerPage: number = 10;
+  planetsPerPage: number = 5;
   options: any[] = [{
       name: "5",
       value: 5
